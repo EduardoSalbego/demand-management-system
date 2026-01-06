@@ -20,6 +20,7 @@
                         <th>Título</th>
                         <th>Entrega</th>
                         <th>Status</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,20 @@
                                 @else
                                     <span class="badge badge-info">{{ $demanda->status }}</span>
                                 @endif
+                            </td>
+                            <td>
+                                <a href="{{ route('demandas.edit', $demanda->id) }}" class="" title="Editar">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <form action="{{ route('demandas.destroy', $demanda->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm text-danger" title="Excluir" 
+                                            style="border:none; background:none;" 
+                                            onclick="return confirm('Tem certeza que deseja excluir?')">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @empty
