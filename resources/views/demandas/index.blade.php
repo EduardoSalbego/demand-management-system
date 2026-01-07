@@ -31,9 +31,9 @@
                             <td>{{ \Carbon\Carbon::parse($demanda->data_entrega)->format('d/m/Y H:i') }}</td>
                             <td>
                                 @if($demanda->status === 1)
-                                    <span class="badge badge-warning">Aberto</span>
+                                    <span class="badge badge-warning">Pendente</span>
                                 @else
-                                    <span class="badge badge-info">{{ $demanda->status }}</span>
+                                    <span class="badge badge-success">Concluída</span>
                                 @endif
                             </td>
                             <td>

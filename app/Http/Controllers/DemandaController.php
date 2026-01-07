@@ -72,7 +72,8 @@ class DemandaController extends Controller
         $dados = $request->validate([
             'titulo' => 'required|min:5|max:255',
             'descricao' => 'required|min:10',
-            'data_entrega' => 'required|date|after:+48 hours',
+            'data_entrega' => 'required|date',
+            'status' => 'required|boolean',
         ]);
 
         $demanda->update($dados);

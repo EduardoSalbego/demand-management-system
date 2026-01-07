@@ -33,6 +33,18 @@
                         value="{{ $demanda->data_entrega->format('Y-m-d\TH:i') }}">
                     @error('data_entrega') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
+                <div class="form-group">
+                    <label>Status da Tarefa</label>
+                    <select name="status" class="form-control">
+                        <option value="1" {{ $demanda->status == 1 ? 'selected' : '' }}>
+                            Em andamento
+                        </option>
+
+                        <option value="0" {{ $demanda->status == 0 ? 'selected' : '' }}>
+                            Finalizada
+                        </option>
+                    </select>
+                </div>
             </div>
 
             <div class="card-footer">
