@@ -53,18 +53,14 @@ class DemandaController extends Controller
 
     public function edit(Demanda $demanda)
     {
-        if ($demanda->user_id !== Auth::id()) {
-            abort(403, 'Você não tem permissão para editar esta demanda.');
-        }
+        $this->authorize('update', $demanda);
 
         return view('demandas.edit', compact('demanda'));
     }
 
     public function update(Request $request, Demanda $demanda)
     {
-        if ($demanda->user_id !== Auth::id()) {
-            abort(403);
-        }
+        $this->authorize('update', $demanda);
 
         $dados = $request->validate([
             'titulo' => 'required|min:5|max:255',
@@ -79,9 +75,7 @@ class DemandaController extends Controller
 
     public function destroy(Demanda $demanda)
     {
-        if ($demanda->user_id !== Auth::id()) {
-            abort(403);
-        }
+        $this->authorize('delete', $demanda);
 
         $demanda->delete();
 
