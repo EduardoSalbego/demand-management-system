@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class DemandaController extends Controller
 {
-    // no index usei paginate(10) pensando em escalabilidade. se o sistema tiver muitas demandas, o método all(), por ex, provavelmente
-    // travar, enquanto o paginate não.
+    // no index usei paginate pensando em escalabilidade. se o sistema tiver muitas demandas, o método all(), por ex, provavelmente
+    // iria travar, enquanto o paginate não.
     public function index()
     {
         $demandas = Demanda::where('user_id', Auth::id())
@@ -50,7 +50,7 @@ class DemandaController extends Controller
             'titulo' => $dados['titulo'],
             'descricao' => $dados['descricao'],
             'data_entrega' => $dados['data_entrega'],
-            'status' => 1, // 1 = Aberto
+            'status' => 1,
         ]);
 
         return redirect()->route('demandas.index')->with('success', 'Demanda criada com sucesso!');
