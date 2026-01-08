@@ -15,7 +15,14 @@ class DemandaController extends Controller
         $query = Demanda::where('user_id', Auth::id());
 
         if ($request->has('status') && $request->status !== null) {
-            $query->where('status', $request->status);
+            
+            if ($request->status === 'atrasadas') {
+                $query->where('status', 1)
+                      ->where('data_entrega', '<', now());
+            } 
+            else {
+                $query->where('status', $request->status);
+            }
         }
 
         $demandas = $query->latest()->paginate(10);

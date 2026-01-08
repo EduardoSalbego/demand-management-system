@@ -28,6 +28,14 @@
                     <span class="badge badge-success">Concluídas</span>
                 </label>
             </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="status" id="statusAtrasadas" value="atrasadas" 
+                       {{ request('status') == 'atrasadas' ? 'checked' : '' }}
+                       onchange="this.form.submit()">
+                <label class="form-check-label" for="statusAtrasadas" style="cursor: pointer;">
+                    <span class="badge badge-danger">Atrasadas</span>
+                </label>
+            </div>
         </form>
     </div>
 </div>
@@ -58,10 +66,12 @@
                             <td>{{ $demanda->titulo }}</td>
                             <td>{{ \Carbon\Carbon::parse($demanda->data_entrega)->format('d/m/Y H:i') }}</td>
                             <td>
-                                @if($demanda->status === 1)
-                                    <span class="badge badge-warning">Pendente</span>
-                                @else
+                                @if($demanda->status == 0)
                                     <span class="badge badge-success">Concluída</span>
+                                @elseif($demanda->data_entrega < now())
+                                    <span class="badge badge-danger">Atrasada</span>
+                                @else
+                                    <span class="badge badge-warning">Pendente</span>
                                 @endif
                             </td>
                             <td>
