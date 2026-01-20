@@ -6,6 +6,19 @@
 
 A robust web application developed as a **technical onboarding challenge** to manage corporate demands and tasks. This system implements full CRUD operations, advanced security layers, and a data-driven dashboard.
 
+## System Preview
+
+<table>
+  <tr>
+    <td align="center"><strong>Dashboard Overview</strong></td>
+    <td align="center"><strong>My Demands List</strong></td>
+  </tr>
+  <tr>
+    <td><img src="./assets/dashboard.png" width="500" alt="Dashboard View"></td>
+    <td><img src="./assets/minhasdemandas.png" width="500" alt="Demands List View"></td>
+  </tr>
+</table>
+
 ---
 
 ## Technologies & Architecture
