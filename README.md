@@ -114,4 +114,4 @@ php artisan serve
 Acess http://localhost:8000
 
 ### Developed by
-**Eduardo Salbego** Software Engineering Student | 8th Semester @ UNIPAMPA  _Currently focusing on Full-Stack Development and AI_
+**Eduardo Salbego** Software Engineering Student | 8th Semester @ UNIPAMPA
